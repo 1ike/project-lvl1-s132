@@ -1,6 +1,6 @@
 {
   "name": "project-lvl1-s132",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "main": "src/bin/brain-games.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
