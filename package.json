@@ -1,7 +1,7 @@
 {
   "name": "project-lvl1-s132",
-  "version": "0.0.14",
-  "main": "src/bin/brain-games.js",
+  "version": "0.0.15",
+  "main": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -28,5 +28,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "Brain Games"
 }

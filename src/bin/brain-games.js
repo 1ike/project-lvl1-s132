@@ -1,7 +1,7 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 
-// import Game from '..';
-const Game = require('..');
+import Game from '..';
+// const Game = require('..');
 
 const game = new Game();
 
