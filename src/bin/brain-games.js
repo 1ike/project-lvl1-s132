@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
-import Game from '..';
+import { greeting, greetingByName } from '..';
 
-
-const game = new Game();
-
-game.greeting();
-game.greetingByName();
+greeting();
+greetingByName();
