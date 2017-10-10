@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 
 
-function Game() {
+export default function () {
   this.greeting = () => console.log('Welcome to the Brain Games!');
   this.greetingByName = () => {
     const name = readlineSync.question('May I have your name? ');
@@ -9,4 +9,3 @@ function Game() {
   };
 }
 
-module.exports = Game;
