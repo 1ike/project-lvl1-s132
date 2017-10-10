@@ -1,5 +1,6 @@
 #!/usr/bin/node
 
+// import Game from '..';
 const Game = require('..');
 
 const game = new Game();
