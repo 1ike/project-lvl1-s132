@@ -1,9 +1,10 @@
 {
   "name": "project-lvl1-s132",
-  "version": "0.0.18",
+  "version": "0.1.1",
   "main": "",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "dependencies": {
     "readline-sync": "^1.4.7"
