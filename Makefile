@@ -7,7 +7,10 @@ start:
 	npm run babel-node -- src/bin/brain-games.js
 
 build: lint
-	npm run build && chmod +x dist/bin/brain-even.js
+	npm run build
+
+b:
+	npm run build
 
 lint:
 	npm run eslint src
