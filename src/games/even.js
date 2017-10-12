@@ -1,9 +1,7 @@
-import init from '../../assets/init';
-import play from '../../assets/play';
-import { getRandomInt } from '../../assets/lib';
+import start from '../start';
+import { getRandomInt } from '../lib';
 
 const rulesMessage = 'Answer "yes" if number even otherwise answer "no"';
-const name = init(rulesMessage);
 
 const getQuestion = () => getRandomInt(100);
 
@@ -12,4 +10,4 @@ const getCorrectAnswer = (question) => {
   return result;
 };
 
-play(getQuestion, getCorrectAnswer, name);
+start(rulesMessage, getQuestion, getCorrectAnswer);

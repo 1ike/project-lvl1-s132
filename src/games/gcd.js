@@ -1,10 +1,8 @@
 
-import init from '../../assets/init';
-import play from '../../assets/play';
-import { getRandomPairInt, getGCD } from '../../assets/lib';
+import start from '../start';
+import { getRandomPairInt, getGCD } from '../lib';
 
 const rulesMessage = 'Find the greatest common divisor of given numbers.';
-const name = init(rulesMessage);
 
 const getQuestion = () => {
   const { a, b } = getRandomPairInt(30);
@@ -18,4 +16,4 @@ const getCorrectAnswer = (question) => {
   return getGCD(arr[0], arr[1]).toString();
 };
 
-play(getQuestion, getCorrectAnswer, name);
+start(rulesMessage, getQuestion, getCorrectAnswer);

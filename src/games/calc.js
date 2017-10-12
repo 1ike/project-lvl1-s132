@@ -1,10 +1,7 @@
-
-import init from '../../assets/init';
-import play from '../../assets/play';
-import { getRandomInt, getRandomPairInt } from '../../assets/lib';
+import start from '../start';
+import { getRandomInt, getRandomPairInt } from '../lib';
 
 const rulesMessage = 'What is the result of the expression?';
-const name = init(rulesMessage);
 
 const getQuestion = () => {
   const { a, b } = getRandomPairInt(30);
@@ -46,4 +43,4 @@ const getCorrectAnswer = (question) => {
   return result.toString();
 };
 
-play(getQuestion, getCorrectAnswer, name);
+start(rulesMessage, getQuestion, getCorrectAnswer);
