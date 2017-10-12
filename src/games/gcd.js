@@ -1,8 +1,14 @@
 
 import start from '../start';
-import { getRandomPairInt, getGCD } from '../lib';
+import { getRandomPairInt } from '../lib';
 
-const rulesMessage = 'Find the greatest common divisor of given numbers.';
+const getGCD = (a, b) => {
+  if (!b) {
+    return a;
+  }
+
+  return getGCD(b, a % b);
+};
 
 const getQuestion = () => {
   const { a, b } = getRandomPairInt(30);
@@ -16,4 +22,13 @@ const getCorrectAnswer = (questValue) => {
   return getGCD(arr[0], arr[1]).toString();
 };
 
-start(rulesMessage, getQuestion, getCorrectAnswer);
+const rulesMessage = 'Find the greatest common divisor of given numbers.';
+
+const getQA = () => {
+  const question = getQuestion();
+  const correctAnswer = getCorrectAnswer(question);
+
+  return { question, correctAnswer };
+};
+
+export default () => start(rulesMessage, getQA);

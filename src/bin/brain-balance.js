@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-import {} from '../games/balance';
+import launch from '../games/balance';
+
+launch();
