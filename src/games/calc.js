@@ -24,9 +24,9 @@ const getQuestion = () => {
 };
 
 // const getCorrectAnswer = question => eval(question).toString();
-const getCorrectAnswer = (question) => {
+const getCorrectAnswer = (questValue) => {
   let result;
-  const arr = question.match(/(\d+)(\D)(\d+)/);
+  const arr = questValue.match(/(\d+)(\D)(\d+)/);
 
   switch (arr[2]) {
     case '+':

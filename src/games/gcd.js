@@ -10,8 +10,8 @@ const getQuestion = () => {
   return `${a} ${b}`;
 };
 
-const getCorrectAnswer = (question) => {
-  const arr = question.split(' ');
+const getCorrectAnswer = (questValue) => {
+  const arr = questValue.split(' ');
 
   return getGCD(arr[0], arr[1]).toString();
 };

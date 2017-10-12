@@ -5,8 +5,8 @@ const rulesMessage = 'Answer "yes" if number even otherwise answer "no"';
 
 const getQuestion = () => getRandomInt(100);
 
-const getCorrectAnswer = (question) => {
-  const result = question % 2 === 0 ? 'yes' : 'no';
+const getCorrectAnswer = (questValue) => {
+  const result = questValue % 2 === 0 ? 'yes' : 'no';
   return result;
 };
 
