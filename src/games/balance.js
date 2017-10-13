@@ -4,6 +4,8 @@ import { getRandomInt } from '../lib';
 
 const RULES_MESSAGE = 'Balance the given number.';
 
+const LIMIT_MAX_NUMBER = 1000;
+
 const balance = (num) => {
   const str = num.toString();
 
@@ -27,7 +29,7 @@ const balance = (num) => {
 };
 
 const getQA = () => {
-  const question = getRandomInt(1000);
+  const question = getRandomInt(LIMIT_MAX_NUMBER);
   const correctAnswer = balance(question).join('');
 
   return { question, correctAnswer };
