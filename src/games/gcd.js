@@ -2,6 +2,10 @@
 import start from '../start';
 import { getRandomPairInt } from '../lib';
 
+const RULES_MESSAGE = 'Find the greatest common divisor of given numbers.';
+
+const LIMIT_MAX_NUMBER = 30;
+
 const getGCD = (a, b) => {
   if (!b) {
     return a;
@@ -10,25 +14,13 @@ const getGCD = (a, b) => {
   return getGCD(b, a % b);
 };
 
-const getQuestion = () => {
-  const { a, b } = getRandomPairInt(30);
-
-  return `${a} ${b}`;
-};
-
-const getCorrectAnswer = (questValue) => {
-  const arr = questValue.split(' ');
-
-  return getGCD(arr[0], arr[1]).toString();
-};
-
-const rulesMessage = 'Find the greatest common divisor of given numbers.';
-
 const getQA = () => {
-  const question = getQuestion();
-  const correctAnswer = getCorrectAnswer(question);
+  const { a, b } = getRandomPairInt(LIMIT_MAX_NUMBER);
+  const question = `${a} ${b}`;
+
+  const correctAnswer = getGCD(a, b).toString();
 
   return { question, correctAnswer };
 };
 
-export default () => start(rulesMessage, getQA);
+export default () => start(RULES_MESSAGE, getQA);

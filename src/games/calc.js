@@ -1,10 +1,16 @@
 import start from '../start';
 import { getRandomInt, getRandomPairInt } from '../lib';
 
-const getQuestion = () => {
-  const { a, b } = getRandomPairInt(30);
+const RULES_MESSAGE = 'What is the result of the expression?';
 
-  const dice = getRandomInt(3);
+const LIMIT_MAX_NUMBER = 30;
+const LIMIT_DICE_FACES = 3;
+
+const getQA = () => {
+  // get question
+  const { a, b } = getRandomPairInt(LIMIT_MAX_NUMBER);
+
+  const dice = getRandomInt(LIMIT_DICE_FACES);
   let operator = '';
   switch (dice) {
     case 0:
@@ -18,35 +24,25 @@ const getQuestion = () => {
       break;
   }
 
-  return a + operator + b;
-};
+  const question = a + operator + b;
 
-const getCorrectAnswer = (questValue) => {
+  // get correctAnswer
   let result;
-  const input = questValue.match(/(\d+)(\D)(\d+)/);
-
-  switch (input[2]) {
+  switch (operator) {
     case '+':
-      result = +input[1] + +input[3];
+      result = a + b;
       break;
     case '-':
-      result = +input[1] - +input[3];
+      result = a - b;
       break;
     default:
-      result = +input[1] * +input[3];
+      result = a * b;
       break;
   }
 
-  return result.toString();
-};
-
-const rulesMessage = 'What is the result of the expression?';
-
-const getQA = () => {
-  const question = getQuestion();
-  const correctAnswer = getCorrectAnswer(question);
+  const correctAnswer = result.toString();
 
   return { question, correctAnswer };
 };
 
-export default () => start(rulesMessage, getQA);
+export default () => start(RULES_MESSAGE, getQA);

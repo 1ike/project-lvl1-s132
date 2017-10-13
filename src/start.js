@@ -1,16 +1,17 @@
 import readlineSync from 'readline-sync';
 
-const attemptsNumber = 3;
+const ATTEMPTS_NUMBER = 3;
 
 const play = (getQA, name, counter) => {
-  if (counter === attemptsNumber) {
+  if (counter === ATTEMPTS_NUMBER) {
     console.log(`Congratulations, ${name}!`);
     return;
   }
 
   const { question, correctAnswer } = getQA();
 
-  const questionMessage = `Question: ${question}\nYour answer: `;
+  console.log(`Question: ${question}`);
+  const questionMessage = 'Your answer: ';
   const answer = readlineSync.question(questionMessage);
   if (answer === correctAnswer) {
     console.log('Correct!');
@@ -21,12 +22,13 @@ const play = (getQA, name, counter) => {
   }
 };
 
-const start = (rulesMessage, getQA) => {
+const start = (RULES_MESSAGE, getQA) => {
   console.log('Welcome to the Brain Games!');
-  console.log(rulesMessage);
+  console.log(RULES_MESSAGE);
   let name = readlineSync.question('\nMay I have your name? ');
   name = name !== '' ? name : 'Anonymous';
-  console.log(`Hello, ${name}!\n`);
+  console.log(`Hello, ${name}!`);
+  console.log('');
   play(getQA, name, 0);
 };
 

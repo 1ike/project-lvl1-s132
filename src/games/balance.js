@@ -2,6 +2,8 @@
 import start from '../start';
 import { getRandomInt } from '../lib';
 
+const RULES_MESSAGE = 'Balance the given number.';
+
 const balance = (num) => {
   const str = num.toString();
 
@@ -21,16 +23,14 @@ const balance = (num) => {
     output.push(evenDigit);
   }
 
-  return output.reverse().join('');
+  return output.reverse();
 };
-
-const rulesMessage = 'Balance the given number.';
 
 const getQA = () => {
   const question = getRandomInt(1000);
-  const correctAnswer = balance(question);
+  const correctAnswer = balance(question).join('');
 
   return { question, correctAnswer };
 };
 
-export default () => start(rulesMessage, getQA);
+export default () => start(RULES_MESSAGE, getQA);
