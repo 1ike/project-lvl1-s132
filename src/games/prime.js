@@ -6,7 +6,7 @@ const rulesMessage = 'Answer "yes" if number is prime otherwise answer "no".';
 const limitMaxNumber = 50;
 
 const isPrime = (num) => {
-  if (num === 1) return false;
+  if (num <= 1) return false;
 
   const upperLimit = Math.sqrt(num);
   for (let d = 2; d <= upperLimit; d += 1) {
