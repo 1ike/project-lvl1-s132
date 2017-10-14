@@ -2,9 +2,9 @@
 import start from '../start';
 import { getRandomInt } from '../lib';
 
-const RULES_MESSAGE = 'Balance the given number.';
+const rulesMessage = 'Balance the given number.';
 
-const LIMIT_MAX_NUMBER = 1000;
+const limitMaxNumber = 1000;
 
 const balance = (num) => {
   const str = num.toString();
@@ -25,14 +25,14 @@ const balance = (num) => {
     output.push(evenDigit);
   }
 
-  return output.reverse();
+  return +output.reverse().join('');
 };
 
-const getQA = () => {
-  const question = getRandomInt(LIMIT_MAX_NUMBER);
-  const correctAnswer = balance(question).join('');
+const getQuestionAnswerPair = () => {
+  const question = getRandomInt(limitMaxNumber);
+  const correctAnswer = balance(question).toString();
 
   return { question, correctAnswer };
 };
 
-export default () => start(RULES_MESSAGE, getQA);
+export default () => start(rulesMessage, getQuestionAnswerPair);

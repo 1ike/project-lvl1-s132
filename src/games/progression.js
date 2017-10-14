@@ -1,40 +1,40 @@
 import start from '../start';
 import { getRandomInt } from '../lib';
 
-const RULES_MESSAGE = 'What number is missing in this progression?';
+const rulesMessage = 'What number is missing in this progression?';
 
-const PROGRESSIONS_LENGTH = 10;
-const LIMIT_START_POSITION = 100;
-const LIMIT_DIFF = 10;
-const MASK_SYMBOL = '..';
+const progressionLength = 10;
+const limitStartPosition = 100;
+const limitDiff = 10;
+const maskSymbol = '..';
 
-const progression = (diff) => {
-  const startValue = getRandomInt(LIMIT_START_POSITION);
+const getProgression = (diff) => {
+  const startValue = getRandomInt(limitStartPosition);
   const output = [startValue];
-  for (let i = 1; i < PROGRESSIONS_LENGTH; i += 1) {
+  for (let i = 1; i < progressionLength; i += 1) {
     output.push(output[i - 1] + diff);
   }
 
   return output;
 };
 
-const getQA = () => {
+const getQuestionAnswerPair = () => {
   // get question
-  let diff = getRandomInt(LIMIT_DIFF);
+  let diff = getRandomInt(limitDiff);
   diff = diff === 0 ? 1 : diff;
-  const qResult = progression(diff);
-  const mask = getRandomInt(PROGRESSIONS_LENGTH);
-  qResult[mask] = MASK_SYMBOL;
+  const questionResult = getProgression(diff);
+  const mask = getRandomInt(progressionLength);
+  questionResult[mask] = maskSymbol;
 
-  const question = qResult.join(' ');
+  const question = questionResult.join(' ');
 
   // get correctAnswer
-  const answerDigit = qResult.map((val) => {
-    const res = val === MASK_SYMBOL ? val : +val;
+  const answerDigit = questionResult.map((val) => {
+    const res = val === maskSymbol ? val : +val;
     return res;
   });
 
-  const index = answerDigit.indexOf(MASK_SYMBOL);
+  const index = answerDigit.indexOf(maskSymbol);
   let result;
   if (index === 0) {
     result = answerDigit[1] - diff;
@@ -47,4 +47,4 @@ const getQA = () => {
   return { question, correctAnswer };
 };
 
-export default () => start(RULES_MESSAGE, getQA);
+export default () => start(rulesMessage, getQuestionAnswerPair);

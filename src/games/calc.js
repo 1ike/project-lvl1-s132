@@ -1,16 +1,16 @@
 import start from '../start';
 import { getRandomInt, getRandomPairInt } from '../lib';
 
-const RULES_MESSAGE = 'What is the result of the expression?';
+const rulesMessage = 'What is the result of the expression?';
 
-const LIMIT_MAX_NUMBER = 30;
-const LIMIT_DICE_FACES = 3;
+const limitMaxNumber = 30;
+const limitDiceFaces = 3;
 
-const getQA = () => {
+const getQuestionAnswerPair = () => {
   // get question
-  const { a, b } = getRandomPairInt(LIMIT_MAX_NUMBER);
+  const { a, b } = getRandomPairInt(limitMaxNumber);
 
-  const dice = getRandomInt(LIMIT_DICE_FACES);
+  const dice = getRandomInt(limitDiceFaces);
   let operator = '';
   switch (dice) {
     case 0:
@@ -45,4 +45,4 @@ const getQA = () => {
   return { question, correctAnswer };
 };
 
-export default () => start(RULES_MESSAGE, getQA);
+export default () => start(rulesMessage, getQuestionAnswerPair);
